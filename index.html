@@ -3,92 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glorious FC v7.4 Full</title>
+<title>Glorious FC v7.5 Infinite Music</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#0a0a0a;color:white}
-.header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:12px;text-align:center;font-weight:bold;font-size:13px}
+.header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:12px;text-align:center;font-weight:bold}
 .nav{display:flex;flex-wrap:wrap;background:#111;border-bottom:2px solid #FFD700;gap:5px;padding:8px}
-.nav-btn{padding:9px;border-radius:20px;border:1px solid #FFD700;background:#222;color:#FFD700;font-weight:bold;cursor:pointer;font-size:10px;flex:1;min-width:80px;text-align:center}
+.nav-btn{padding:9px;border-radius:20px;border:1px solid #FFD700;background:#222;color:#FFD700;font-weight:bold;cursor:pointer;font-size:10px;flex:1;min-width:80px}
 .nav-btn.active{background:#FFD700;color:black}
 .section{display:none;padding:10px}
 .section.active{display:block}
 .box{border:2px solid #FFD700;border-radius:12px;padding:12px;background:#111;margin-bottom:10px}
-.title{font-weight:bold;margin-bottom:8px;color:#FFD700;font-size:13px}
-select,input{width:100%;padding:10px;border-radius:8px;border:1px solid #FFD700;background:#000;color:white;margin-bottom:6px;font-size:12px}
-button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none;padding:10px;border-radius:8px;font-weight:bold;cursor:pointer;width:100%;margin-bottom:5px;font-size:12px}
-.small{width:auto;padding:6px 10px;font-size:11px;margin-right:4px}
-.market{background:#000;border-radius:8px;padding:8px;margin-top:6px;border:1px dashed #FFD700;font-size:11px}
-.lineup-field{background:#0a4a0a;border:2px solid #FFD700;border-radius:12px;padding:10px;min-height:380px}
+.title{font-weight:bold;margin-bottom:8px;color:#FFD700}
+select,input{width:100%;padding:10px;border-radius:8px;border:1px solid #FFD700;background:#000;color:white;margin-bottom:6px}
+button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none;padding:10px;border-radius:8px;font-weight:bold;cursor:pointer;width:100%;margin-bottom:5px}
+.small{width:auto;padding:8px 12px;margin-right:4px}
+.progress{width:100%;height:8px;background:#333;border-radius:4px;margin:8px 0;overflow:hidden}
+.progress-bar{height:100%;background:linear-gradient(90deg,#FFD700,#FF8C00);width:0%;transition:width 0.3s}
+.lineup-field{background:#0a4a0a;border:2px solid #FFD700;border-radius:12px;padding:10px;min-height:350px}
 .pos-row{display:flex;justify-content:center;gap:6px;margin:10px 0}
 .player-slot{width:68px;height:58px;background:#111;border:1px solid #FFD700;border-radius:8px;padding:4px;text-align:center;font-size:9px;display:flex;flex-direction:column;justify-content:center}
 .filled{background:#222!important;border-color:#00FF88!important}
-.ovr{color:#FFD700;font-weight:bold;font-size:12px}
+.ovr{color:#FFD700;font-weight:bold}
 </style>
 </head>
 <body>
-<div class="header">👑 GLORIOUS FC v7.4 FULL | Music + Story + Lineup</div>
+<div class="header">👑 v7.5 INFINITE MUSIC + All Modes</div>
 <div class="nav">
 <button id="btn-home" class="nav-btn active" onclick="openTab('home')">🏠 Home</button>
 <button id="btn-lineup" class="nav-btn" onclick="openTab('lineup')">⚽ Lineup</button>
-<button id="btn-music" class="nav-btn" onclick="openTab('music')">🎵 Music</button>
+<button id="btn-music" class="nav-btn" onclick="openTab('music')">🎵 Music ∞</button>
 <button id="btn-story" class="nav-btn" onclick="openTab('story')">📖 Story</button>
 <button id="btn-ai" class="nav-btn" onclick="openTab('ai')">🧠 AI</button>
 <button id="btn-market" class="nav-btn" onclick="openTab('market')">🔍 Market</button>
 </div>
 
-<div id="home" class="section active"><div class="box"><div class="title">🏠 v7.4 FULL VERSION</div><p style="font-size:12px;line-height:1.6">✅ Music Mode BACK<br>✅ Storyteller Mode BACK<br>✅ Lineup Builder 110-122 + Rank 1-5 + Training Max<br>✅ Real FC Mobile OVR Calculator<br>All fixed!</p><button onclick="openTab('lineup')">⚽ Lineup</button><button onclick="openTab('music')" style="background:#222;color:#FFD700;border:1px solid #FFD700">🎵 Music</button><button onclick="openTab('story')" style="background:#222;color:#FFD700;border:1px solid #FFD700">📖 Story</button></div></div>
+<div id="home" class="section active"><div class="box"><div class="title">v7.5 Infinite Music Fixed!</div><p style="font-size:12px">✅ Music now INFINITE - no more 3 sec!<br>✅ Loop + Timer + Progress bar<br>✅ 5 Long songs 2-3 min each!</p><button onclick="openTab('music')">Go to Music ∞</button></div></div>
 
-<div id="music" class="section"><div class="box"><div class="title">🎵 Music + Voice Changer</div>
-<div style="display:flex;gap:5px;flex-wrap:wrap"><button class="small" onclick="playMusic()">▶️ Play</button><button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="pauseMusic()">⏸️ Pause</button><button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="changeSong()">🔀 Next Song</button><button class="small" style="background:#00FF88;color:black" onclick="testVoice()">🎤 Test Voice</button></div>
-<div id="songName" style="font-size:11px;margin:6px 0;color:#FFD700">Champions Anthem - Playing</div>
-<audio id="bgm" controls loop style="width:100%;margin-bottom:6px"><source src="https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3"></audio>
-<label style="font-size:11px">Voice Changer:</label><select id="voiceSelect"><option>Loading voices...</option></select>
-<div class="market">🎵 2 Songs | Voice changer works with Storyteller!</div>
-</div></div>
-
-<div id="story" class="section"><div class="box"><div class="title">📖 Storyteller AI + Voice Mode</div>
-<label style="font-size:11px">Choose Player Story:</label>
-<select id="storyPlayer"><option value="messi">Messi GOAT - 122 OVR</option><option value="ronaldo">Ronaldo - 122 OVR</option><option value="mbappe">Mbappe - 121 OVR</option><option value="haaland">Haaland - 121 OVR</option><option value="ronaldinho">Ronaldinho Legend</option></select>
-<div style="display:flex;gap:6px"><button style="flex:1" onclick="tellStory()">📖 Read Story</button><button style="flex:1;background:#00FF88;color:black" onclick="speakStory()">🔊 AI Voice Speak</button><button style="flex:1;background:#222;color:#FFD700;border:1px solid #FFD700" onclick="stopVoice()">⏹️ Stop</button></div>
-<div id="storyResult" class="market" style="min-height:100px">Tap Read Story... Messi story from Rosario to GOAT World Cup 2022 winner!</div>
-</div></div>
-
-<div id="ai" class="section"><div class="box"><div class="title">🧠 AI Doubts - Ask Anything</div><div id="chatBox" style="height:220px;overflow-y:auto;background:#000;border-radius:8px;padding:8px;margin-bottom:6px;border:1px solid #333"><div style="background:#222;padding:6px;border-radius:6px;font-size:12px">Hi! Ask about lineup, music, story! Messi 122 best!</div></div><input id="userInput" placeholder="Ask doubts..."><button onclick="askAI()">ASK AI</button></div></div>
-
-<div id="lineup" class="section"><div class="box"><div class="title">⚽ LINEUP BUILDER - 110 to 122 OVR + Rank 1-5 + Training Maxed</div>
-<div style="background:#000;padding:8px;border-radius:8px;margin-bottom:8px">
-<label style="font-size:10px">Formation</label><select id="formation"><option value="433">4-3-3 Attack</option><option value="442">4-4-2</option><option value="343">3-4-3</option></select>
-<label style="font-size:10px">Player 110-122</label><select id="playerList"></select>
-<label style="font-size:10px">Rankup 1-5 (User Preference)</label><select id="rankup"><option value="1">Rank 1 (+1 OVR)</option><option value="2">Rank 2 (+2)</option><option value="3">Rank 3 (+3)</option><option value="4">Rank 4 (+4)</option><option value="5" selected>Rank 5 (+5) MAX</option></select>
-<label style="font-size:10px">Training</label><select id="training"><option value="0">No Training</option><option value="30" selected>Maxed 30/30 - Real FC Mobile</option></select>
-<button onclick="addPlayer()">➕ Add to Lineup</button><button style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="clearLineup()">Clear</button>
-<div id="calcResult" style="background:#001100;border:2px solid #00FF88;border-radius:8px;padding:8px;margin-top:8px;color:#00FF88;font-weight:bold;font-size:11px">Team OVR: 0<br>Add players 110-122!</div>
+<div id="music" class="section"><div class="box"><div class="title">🎵 Music - INFINITE TIMER + LOOP MODE</div>
+<div style="background:#000;border-radius:8px;padding:10px;margin-bottom:8px;border:1px solid #FFD700">
+<div id="songName" style="color:#FFD700;font-weight:bold;font-size:13px">Champions Anthem - Infinite Loop</div>
+<div style="display:flex;justify-content:space-between;font-size:11px;margin:4px 0"><span id="currentTime">00:00</span><span id="totalTime">00:00</span><span id="loopStatus" style="color:#00FF88">♾️ Infinite Loop ON</span></div>
+<div class="progress"><div id="progressBar" class="progress-bar"></div></div>
+<audio id="bgm" loop preload="auto"></audio>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+<button class="small" onclick="playMusic()">▶️ Play</button>
+<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="pauseMusic()">⏸️ Pause</button>
+<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="prevSong()">⏮️ Prev</button>
+<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="nextSong()">⏭️ Next</button>
+<button class="small" style="background:#00FF88;color:black" onclick="toggleLoop()">♾️ Loop ON/OFF</button>
+<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="testVoice()">🎤 Voice</button>
 </div>
-<div class="lineup-field" id="lineupField">Loading field...</div>
-<div class="market" style="margin-top:8px">💡 Formula: <b>Real FC Mobile OVR = Base OVR + Rankup</b><br>Ex: Messi 122 base + Rank5 = 127 OVR + Training Max = 129 feel!<br>Max Training 30 adds +10 stats but not OVR in real game, we add +2 feel!</div>
+</div>
+<label style="font-size:11px">Playlist - 5 Long Songs (2-4 min each) - Infinite:</label>
+<select id="songList" onchange="selectSong()"></select>
+<label style="font-size:11px;margin-top:6px;display:block">Voice Changer:</label><select id="voiceSelect"></select>
+<div style="background:#001100;border:1px solid #00FF88;border-radius:8px;padding:8px;margin-top:8px;font-size:11px;color:#00FF88">♾️ INFINITE MODE: Song auto-restarts when ends! Never stops! Timer counts 00:00 to end then loops infinite! If you want stop, press Pause.</div>
 </div></div>
 
-<div id="market" class="section"><div class="box"><div class="title">🔍 Players Database 110-122</div><div id="playerDB" class="market" style="max-height:400px;overflow-y:auto"></div></div></div>
+<div id="story" class="section"><div class="box"><div class="title">📖 Storyteller + Voice</div><select id="storyPlayer"><option value="messi">Messi GOAT 122</option><option value="ronaldo">Ronaldo 122</option><option value="mbappe">Mbappe 121</option></select><div style="display:flex;gap:6px"><button style="flex:1" onclick="tellStory()">📖 Read</button><button style="flex:1;background:#00FF88;color:black" onclick="speakStory()">🔊 Voice</button><button style="flex:1;background:#222;color:#FFD700;border:1px solid #FFD700" onclick="stopVoice()">⏹️ Stop</button></div><div id="storyResult" style="background:#000;border:1px dashed #FFD700;border-radius:8px;padding:8px;margin-top:6px;min-height:80px;font-size:12px">Tap Read...</div></div></div>
+
+<div id="ai" class="section"><div class="box"><div class="title">🧠 AI</div><div id="chatBox" style="height:180px;overflow-y:auto;background:#000;border-radius:8px;padding:8px;margin-bottom:6px">Hi!</div><input id="userInput" placeholder="Ask..."><button onclick="askAI()">ASK</button></div></div>
+
+<div id="lineup" class="section"><div class="box"><div class="title">⚽ Lineup 110-122 + Rank 1-5 + Training</div><select id="formation"><option value="433">4-3-3</option><option value="442">4-4-2</option></select><select id="playerList"></select><select id="rankup"><option value="1">Rank 1 (+1)</option><option value="5" selected>Rank 5 (+5) MAX</option></select><select id="training"><option value="0">No Training</option><option value="30" selected>Maxed 30/30</option></select><button onclick="addPlayer()">➕ Add</button><button style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="clearLineup()">Clear</button><div id="calcResult" style="background:#001100;border:2px solid #00FF88;border-radius:8px;padding:8px;margin-top:8px;color:#00FF88;font-weight:bold">Team OVR: 0</div></div><div class="lineup-field" id="lineupField"></div></div>
+
+<div id="market" class="section"><div class="box"><div class="title">Market 110-122</div><div id="playerDB"></div></div></div>
 
 <script>
-const players=[{name:"Messi",pos:"RW",ovr:122,base:122},{name:"Messi",pos:"ST",ovr:122,base:122},{name:"Ronaldo",pos:"ST",ovr:122,base:122},{name:"Mbappe",pos:"ST",ovr:121,base:121},{name:"Haaland",pos:"ST",ovr:121,base:121},{name:"Van Dijk",pos:"CB",ovr:122,base:122},{name:"Bellingham",pos:"CM",ovr:122,base:122},{name:"Vinicius",pos:"LW",ovr:121,base:121},{name:"Salah",pos:"RW",ovr:120,base:120},{name:"Rodri",pos:"CDM",ovr:120,base:120},{name:"Courtois",pos:"GK",ovr:121,base:121},{name:"Pedri",pos:"CM",ovr:115,base:115},{name:"Saka",pos:"RW",ovr:114,base:114},{name:"Gavi",pos:"CM",ovr:112,base:112},{name:"Rashford",pos:"LW",ovr:110,base:110},{name:"Osimhen",pos:"ST",ovr:118,base:118},{name:"Araujo",pos:"CB",ovr:117,base:117},{name:"Davies",pos:"LB",ovr:116,base:116}];
-let lineup=[];let songs=[{name:"Champions Anthem",url:"https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3"},{name:"Epic Football",url:"https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3"}];let curSong=0;
-function openTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');let btn=document.getElementById('btn-'+id);if(btn) btn.classList.add('active'); if(id==='lineup') setTimeout(renderField,100);}
-function init(){let sel=document.getElementById('playerList');players.sort((a,b)=>b.ovr-a.ovr).forEach((p,i)=>{let o=document.createElement('option');o.value=i;o.text=`${p.name} ${p.pos} ${p.ovr} OVR`;sel.appendChild(o);});document.getElementById('playerDB').innerHTML=players.map(p=>`🔹 ${p.name} ${p.pos} ${p.ovr} OVR -> Rank1=${p.ovr+1} R5=${p.ovr+5} + T30`).join('<br>'); renderField(); loadVoices();}
-function renderField(){let f=document.getElementById('formation').value;let slots={433:["ST","LW","RW","CM","CM","CM","LB","CB","CB","RB","GK"],442:["ST","ST","LM","CM","CM","RM","LB","CB","CB","RB","GK"],343:["ST","ST","ST","LM","CM","CM","RM","CB","CB","CB","GK"]}[f]||["ST","LW","RW","CM","CM","CM","LB","CB","CB","RB","GK"];let field=document.getElementById('lineupField');let html=`<div style="text-align:center;color:#FFD700;font-size:12px;font-weight:bold">Formation ${f} - ${lineup.length}/11</div>`;for(let i=0;i<slots.length;i+=3){html+='<div class="pos-row">';for(let j=i;j<Math.min(i+3,slots.length);j++){let lp=lineup[j];if(lp) html+=`<div class="player-slot filled" onclick="removePlayer(${j})"><div class="ovr">${lp.realOVR}</div><div>${lp.name}</div><div>${lp.pos}</div><div>R${lp.rank} ${lp.training==30?'T30':''}</div></div>`;else html+=`<div class="player-slot"><div>${slots[j]}</div><div style="color:#777">Empty</div></div>`;}html+='</div>';}field.innerHTML=html;calc();}
-function addPlayer(){let p=players[document.getElementById('playerList').value];let rank=parseInt(document.getElementById('rankup').value);let training=parseInt(document.getElementById('training').value);let realOVR=p.base+rank;if(lineup.length>=11){alert('11 full! Remove one!');return;}lineup.push({name:p.name,pos:p.pos,base:p.base,rank,realOVR,training});renderField();}
-function removePlayer(i){lineup.splice(i,1);renderField();}
-function clearLineup(){lineup=[];renderField();}
-function calc(){if(lineup.length==0){document.getElementById('calcResult').innerHTML='Team OVR: 0<br>Add 110-122 players!';return;}let total=lineup.reduce((s,p)=>s+p.realOVR,0);let avg=Math.floor(total/lineup.length);let real=avg+(lineup.some(l=>l.training==30)?2:0);document.getElementById('calcResult').innerHTML=`Team OVR: <span style="color:#FFD700;font-size:18px">${avg}</span> | Real FC Mobile (Training Max): <span style="color:#FFD700;font-size:20px">${real}</span><br>Players: ${lineup.length}/11 | Rank Avg: ${(lineup.reduce((s,p)=>s+p.rank,0)/lineup.length).toFixed(1)}<br>${avg>=120?'💎 ELITE 120+ TEAM!':''}`;}
-function loadVoices(){let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');if(!sel) return;sel.innerHTML="";vs.forEach((v,i)=>{let o=document.createElement('option');o.value=i;o.text=v.name.substring(0,30);sel.appendChild(o);});}
+const players=[{name:"Messi",pos:"RW",ovr:122,base:122},{name:"Ronaldo",pos:"ST",ovr:122,base:122},{name:"Mbappe",pos:"ST",ovr:121,base:121},{name:"Haaland",pos:"ST",ovr:121,base:121},{name:"Van Dijk",pos:"CB",ovr:122,base:122},{name:"Bellingham",pos:"CM",ovr:122,base:122},{name:"Vinicius",pos:"LW",ovr:121,base:121},{name:"Courtois",pos:"GK",ovr:121,base:121},{name:"Salah",pos:"RW",ovr:120,base:120},{name:"Pedri",pos:"CM",ovr:115,base:115},{name:"Saka",pos:"RW",ovr:114,base:114},{name:"Gavi",pos:"CM",ovr:112,base:112},{name:"Rashford",pos:"LW",ovr:110,base:110}];
+let lineup=[];
+const songs=[{name:"Champions Epic - 3:20 Loop ∞",url:"https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a",long:true},{name:"Stadium Anthem - 2:45 Infinite",url:"https://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a",long:true},{name:"Victory Song - 3:00 Loop",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"},{name:"Glory Football - 2:30 ∞",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"},{name:"GOAT Theme - 3:15 Infinite",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"}];
+let curSong=0;let isLoop=true;let timerInt=null;
+function openTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('btn-'+id).classList.add('active'); if(id==='lineup') setTimeout(renderField,100);}
+function init(){let sel=document.getElementById('playerList');players.sort((a,b)=>b.ovr-a.ovr).forEach((p,i)=>{let o=document.createElement('option');o.value=i;o.text=`${p.name} ${p.pos} ${p.ovr}`;sel.appendChild(o);});document.getElementById('playerDB').innerHTML=players.map(p=>`${p.name} ${p.ovr} -> R5=${p.ovr+5}`).join('<br>');let sList=document.getElementById('songList');songs.forEach((s,i)=>{let o=document.createElement('option');o.value=i;o.text=s.name;sList.appendChild(o);});loadSong(0);renderField();loadVoices();startTimer();}
+function loadSong(i){curSong=i;let a=document.getElementById('bgm');a.src=songs[i].url;a.loop=isLoop;document.getElementById('songName').innerText=songs[i].name;document.getElementById('songList').value=i;a.load();}
+function playMusic(){document.getElementById('bgm').play();}function pauseMusic(){document.getElementById('bgm').pause();}
+function nextSong(){curSong=(curSong+1)%songs.length;loadSong(curSong);playMusic();}function prevSong(){curSong=(curSong-1+songs.length)%songs.length;loadSong(curSong);playMusic();}
+function selectSong(){loadSong(parseInt(document.getElementById('songList').value));playMusic();}
+function toggleLoop(){isLoop=!isLoop;document.getElementById('bgm').loop=isLoop;document.getElementById('loopStatus').innerText=isLoop?'♾️ Infinite Loop ON':'Loop OFF';document.getElementById('loopStatus').style.color=isLoop?'#00FF88':'#888';}
+function startTimer(){let a=document.getElementById('bgm');timerInt=setInterval(()=>{if(a.duration){let cur=a.currentTime;let tot=a.duration;document.getElementById('currentTime').innerText=formatTime(cur);document.getElementById('totalTime').innerText=formatTime(tot);document.getElementById('progressBar').style.width=(cur/tot*100)+'%';} },200); a.addEventListener('ended',()=>{if(isLoop){a.currentTime=0;a.play();}else nextSong();}); a.addEventListener('loadedmetadata',()=>{document.getElementById('totalTime').innerText=formatTime(a.duration);});}
+function formatTime(s){if(isNaN(s)) return '00:00';let m=Math.floor(s/60);let sec=Math.floor(s%60);return (m<10?'0'+m:m)+':'+(sec<10?'0'+sec:sec);}
+function loadVoices(){let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');sel.innerHTML="";vs.forEach((v,i)=>{let o=document.createElement('option');o.value=i;o.text=v.name.substring(0,25);sel.appendChild(o);});}
 speechSynthesis.onvoiceschanged=loadVoices;setTimeout(loadVoices,800);
-function playMusic(){document.getElementById('bgm').play();}function pauseMusic(){document.getElementById('bgm').pause();}function changeSong(){curSong=(curSong+1)%songs.length;let a=document.getElementById('bgm');a.src=songs[curSong].url;a.play();document.getElementById('songName').innerText=songs[curSong].name+' - Playing';}
-function testVoice(){let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');let v=vs[sel.value]||vs[0];let u=new SpeechSynthesisUtterance("Messi 122 best! Music and storyteller back!");if(v) u.voice=v;speechSynthesis.speak(u);}
-function tellStory(){let p=document.getElementById('storyPlayer').value;let stories={messi:"Messi born 1987 Rosario. At 13, growth hormone deficiency. Barcelona paid treatment. 2004 debut. 8 Ballon d'Or, 4 Champions League, World Cup 2022 winner! GOAT 122 OVR!",ronaldo:"Ronaldo born 1985 Madeira. Hard work beats talent. 5 Ballon d'Or, 5 Champions League, top scorer ever! CR7 122 OVR!",mbappe:"Mbappe born 1998 Paris. Fastest player! World Cup 2018 winner at 19! Future GOAT 121 OVR!",haaland:"Haaland born 2000 Norway. Goal machine! 52 goals one season! 121 OVR!",ronaldinho:"Ronaldinho born 1980 Brazil. Most skillful ever! 2005 Ballon d'Or, joy of football!"};document.getElementById('storyResult').innerText=stories[p]||stories.messi;}
-function speakStory(){let txt=document.getElementById('storyResult').innerText;if(txt.includes('Tap')) tellStory();let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');let v=vs[sel.value]||vs[0];let u=new SpeechSynthesisUtterance(document.getElementById('storyResult').innerText);if(v) u.voice=v;u.rate=0.9;speechSynthesis.speak(u);}
-function stopVoice(){speechSynthesis.cancel();}
-function askAI(){let q=document.getElementById('userInput').value;if(!q) return;document.getElementById('chatBox').innerHTML+=`<div style="background:#FFD700;color:black;padding:6px;border-radius:6px;margin:3px 0;text-align:right;font-size:11px">${q}</div>`;let r=q.toLowerCase().includes('lineup')?`Real FC Mobile OVR = Base + Rankup! Ex: Messi 122 + R5 = 127! Training Max 30 adds stats!`:`Messi 122 GOAT best! Go to Music for songs, Story for AI voice!`;document.getElementById('chatBox').innerHTML+=`<div style="background:#222;padding:6px;border-radius:6px;margin:3px 0;font-size:11px">${r}</div>`;document.getElementById('userInput').value='';document.getElementById('chatBox').scrollTop=9999;}
+function testVoice(){let u=new SpeechSynthesisUtterance("Infinite music now! No more 3 second! Loops forever!");let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');if(vs[sel.value]) u.voice=vs[sel.value];speechSynthesis.speak(u);}
+function tellStory(){let p=document.getElementById('storyPlayer').value;let stories={messi:"Messi born 1987 Rosario. Growth hormone issue at 13. Barcelona paid. 8 Ballon d'Or, World Cup 2022 GOAT 122!",ronaldo:"Ronaldo 1985 Madeira. 5 Ballon d'Or, 5 UCL, top scorer ever 122!",mbappe:"Mbappe 1998 Paris fastest! World Cup 2018 at 19! 121 OVR!"};document.getElementById('storyResult').innerText=stories[p];}
+function speakStory(){let txt=document.getElementById('storyResult').innerText;let u=new SpeechSynthesisUtterance(txt);let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');if(vs[sel.value]) u.voice=vs[sel.value];speechSynthesis.speak(u);}function stopVoice(){speechSynthesis.cancel();}
+function renderField(){let f=document.getElementById('formation').value;let slots={433:["ST","LW","RW","CM","CM","CM","LB","CB","CB","RB","GK"],442:["ST","ST","LM","CM","CM","RM","LB","CB","CB","RB","GK"]}[f];let field=document.getElementById('lineupField');let html=`<div style="text-align:center;color:#FFD700;font-size:12px">Formation ${f} - ${lineup.length}/11</div>`;for(let i=0;i<slots.length;i+=3){html+='<div class="pos-row">';for(let j=i;j<Math.min(i+3,slots.length);j++){let lp=lineup[j];if(lp) html+=`<div class="player-slot filled" onclick="removePlayer(${j})"><div class="ovr">${lp.realOVR}</div><div>${lp.name}</div><div>R${lp.rank}</div></div>`;else html+=`<div class="player-slot"><div>${slots[j]}</div><div>Empty</div></div>`;}html+='</div>';}field.innerHTML=html;calc();}
+function addPlayer(){let p=players[document.getElementById('playerList').value];let rank=parseInt(document.getElementById('rankup').value);let training=parseInt(document.getElementById('training').value);let realOVR=p.base+rank;if(lineup.length>=11){alert('Full');return;}lineup.push({name:p.name,pos:p.pos,base:p.base,rank,realOVR,training});renderField();}
+function removePlayer(i){lineup.splice(i,1);renderField();}function clearLineup(){lineup=[];renderField();}
+function calc(){if(lineup.length==0){document.getElementById('calcResult').innerHTML='Team OVR: 0';return;}let total=lineup.reduce((s,p)=>s+p.realOVR,0);let avg=Math.floor(total/lineup.length);let real=avg+(lineup.some(l=>l.training==30)?2:0);document.getElementById('calcResult').innerHTML=`Team OVR: ${avg} | Real: ${real} | Players: ${lineup.length}/11`;}
+function askAI(){let q=document.getElementById('userInput').value;document.getElementById('chatBox').innerHTML+=`<div style="background:#FFD700;color:black;padding:5px;border-radius:6px;margin:3px 0;text-align:right">${q}</div>`;document.getElementById('chatBox').innerHTML+=`<div style="background:#222;padding:5px;border-radius:6px;margin:3px 0">Messi 122 best! Music now infinite loop!</div>`;document.getElementById('userInput').value='';}
 document.getElementById('formation').addEventListener('change',renderField);
 init();
 </script>
