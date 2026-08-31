@@ -1,104 +1,122 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ULTIMATE GLORIOUS FC 122 OVR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glorious FC - Ultimate AI</title>
 <style>
-body{background:#050505;color:white;font-family:Arial;padding:12px}
-.header{background:linear-gradient(90deg,#FFD700,#FF4500,#FF00FF);color:black;padding:18px;border-radius:20px;text-align:center;font-weight:900;font-size:24px;box-shadow:0 0 20px gold}
-.card{background:#151515;padding:15px;border-radius:15px;margin:12px 0;border:2px solid gold}
-button{background:linear-gradient(45deg,gold,orange);color:black;border:none;padding:12px 16px;border-radius:10px;font-weight:bold;margin:4px;cursor:pointer}
-input{width:92%;padding:12px;border-radius:10px;border:2px solid gold;background:#222;color:white;margin:8px 0}
-.ovr{color:gold;font-weight:900;font-size:18px}
-.chat-box{height:280px;overflow-y:auto;background:#0a0a0a;border-radius:10px;padding:10px;border:1px solid #333}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0a0a0a;color:white;padding:12px}
+.header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:18px;text-align:center;border-radius:15px;font-weight:bold;font-size:20px;margin-bottom:12px;box-shadow:0 0 20px #FFD700}
+.box{border:2px solid #FFD700;border-radius:15px;padding:14px;margin-bottom:12px;background:#111}
+.title{font-weight:bold;margin-bottom:10px;font-size:16px;color:#FFD700}
+#chatBox{height:280px;overflow-y:auto;background:#000;border-radius:10px;padding:10px;margin-bottom:10px;border:1px solid #333}
+.msg{padding:8px 12px;border-radius:10px;margin:6px 0;max-width:90%;line-height:1.4}
+.user{background:#FFD700;color:black;margin-left:auto;text-align:right}
+.ai{background:#222;color:#fff;border:1px solid #444}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #FFD700;background:#000;color:white;outline:none;margin-bottom:8px}
+button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none;padding:11px 18px;border-radius:10px;font-weight:bold;cursor:pointer;width:100%;font-size:15px}
+button:active{transform:scale(0.97)}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.card-btn{background:#222;border:1px solid #FFD700;color:#FFD700;padding:10px;border-radius:10px;font-size:13px}
+.market{background:#000;border-radius:8px;padding:10px;margin-top:8px;border:1px dashed #FFD700}
 </style>
 </head>
 <body>
 
-<div class="header">👑 GLORIOUS FC - 122 OVR EDITION 👑<br><small>Owner: Purbayan Das | MAX POWER</small></div>
-
-<div class="card">
-<h3>🤖 GLORIOUS AI - 122 OVR BRAIN</h3>
-<div id="chat" class="chat-box"><p><b>AI:</b> Ask me anything! Try: Who is owner? Best 122 ST? Show 122 cards?</p></div>
-<input id="q" placeholder="Ask: Who is owner? Show 122 ST cards?">
-<button onclick="ask()">ASK AI 🚀</button>
+<div class="header">
+👑 GLORIOUS FC<br>
+<span style="font-size:13px;color:#222">Owner: Purbayan Das | Ultimate Club</span>
 </div>
 
-<div class="card">
-<h3>🔍 MARKET FINDER - 122 OVR CARDS</h3>
-<input id="marketSearch" placeholder="Search: 122 ST, 122 CB, Fastest 122">
-<button onclick="marketFinder()">SEARCH 122 CARDS 🔥</button>
-<div id="marketResult"></div>
+<div class="box">
+<div class="title">🧠 GLORIOUS AI - Super Intelligent Brain</div>
+<div id="chatBox">
+<div class="msg ai">Hi! I am Glorious AI, created for Purbayan Das! Ask me ANYTHING - Who is owner? Best player? Tell joke? Maths? I am like ChatGPT, not scripted!</div>
+</div>
+<input id="userInput" placeholder="Ask anything... e.g. Who is owner? Tell joke about Ronaldo">
+<button onclick="askAI()">ASK AI ✨</button>
 </div>
 
-<div class="card">
-<h3>⭐ 122 RATED BEST CARDS - ALL POSITIONS</h3>
-<button onclick="bestCard('ST')">122 ST</button>
-<button onclick="bestCard('LW')">122 LW</button>
-<button onclick="bestCard('RW')">122 RW</button>
-<button onclick="bestCard('CM')">122 CM</button>
-<button onclick="bestCard('CB')">122 CB</button>
-<button onclick="bestCard('GK')">122 GK</button>
-<button onclick="bestCard('ALL')">SHOW ALL 122 💎</button>
-<div id="bestResult" style="margin-top:10px"></div>
+<div class="box">
+<div class="title">🔍 MARKET FINDER - 122 OVR CARDS</div>
+<input id="marketInput" placeholder="Search: ST, CB, Fastest, Ronaldo 122...">
+<button onclick="searchMarket()">SEARCH 122 CARDS 🚀</button>
+<div id="marketResult" class="market">Results will show here...</div>
 </div>
 
-<div class="card">
-<h3>🧠 UNLIMITED 122 QUIZ</h3>
-<div id="quizQ">Ready for 122 OVR Quiz?</div>
-<button onclick="nextQuiz()">START QUIZ 🎯</button>
-<div id="quizScore" style="color:gold;font-weight:bold">Score: 0</div>
+<div class="box">
+<div class="title">⭐ 122 RATED BEST CARDS - Market OVR Only</div>
+<div class="card-grid">
+<button class="card-btn" onclick="showCard('ST')">122 ST</button>
+<button class="card-btn" onclick="showCard('LW')">122 LW</button>
+<button class="card-btn" onclick="showCard('RW')">122 RW</button>
+<button class="card-btn" onclick="showCard('CM')">122 CM</button>
+<button class="card-btn" onclick="showCard('CB')">122 CB</button>
+<button class="card-btn" onclick="showCard('GK')">122 GK</button>
+</div>
+<button style="margin-top:10px" onclick="showCard('ALL')">SHOW ALL 122 CARDS</button>
+<div id="cardResult" class="market" style="margin-top:10px">Click any position to see 122 OVR card!</div>
 </div>
 
 <script>
-const brain={
-"owner":"👑 Owner is PURBAYAN DAS - Creator of 122 OVR Glorious FC! The LEGEND!",
-"purbo":"Purbayan Das is the ONLY owner who made 122 rated cards!",
-"122":"💎 Yes! We have 122 OVR cards - Strongest in world! No one else has!",
-"stadium":"🏟️ Glorious Arena - 122,000 capacity - Biggest ever!",
-"formation":"Best: 3-1-4-2 - Attack with 122 OVR STs!",
-"motto":"122 OVR - WE ARE UNSTOPPABLE! 🔥"
-};
+const chatBox = document.getElementById('chatBox');
+const userInput = document.getElementById('userInput');
 
-// 122 OVR ULTIMATE CARDS DATABASE
-const fc122={
-ST:["<span class=ovr>122</span> 🇵🇹 GLORIOUS RONALDO 122 - PAC 199 / SHO 199 - 500M","<span class=ovr>122</span> 🇫🇷 MBAPPE 122 - PAC 200 / SHO 195 - 480M","<span class=ovr>122</span> 🇳🇴 HAALAND 122 - SHO 200 / PHY 199 - 470M","<span class=ovr>122</span> 🇦🇷 MESSI ST 122 - DRI 200 / SHO 197 - 600M","<span class=ovr>121</span> 🇵🇱 LEWANDOWSKI 121 - SHO 198 - 350M"],
-LW:["<span class=ovr>122</span> 🇧🇷 VINICIUS 122 - PAC 199 / DRI 199 - 490M","<span class=ovr>122</span> 🇧🇷 NEYMAR 122 - DRI 200 / SKILL 200 - 520M","<span class=ovr>121</span> 🇫🇷 HENRY 121 - PAC 197 - 400M"],
-RW:["<span class=ovr>122</span> 🇦🇷 MESSI 122 - DRI 200 / SHO 199 - 600M","<span class=ovr>121</span> 🇪🇬 SALAH 121 - PAC 196 / SHO 194 - 380M","<span class=ovr>121</span> 🇧🇷 RODRYGO 121 - PAC 195 - 320M"],
-CM:["<span class=ovr>122</span> 🇧🇪 DE BRUYNE 122 - PAS 200 / SHO 195 - 550M","<span class=ovr>122</span> 🏴󠁧󠁢󠁥󠁮󠁧󠁿 BELLINGHAM 122 - ALL 195+ - 530M","<span class=ovr>122</span> 🇭🇷 MODRIC 122 - PAS 199 / DRI 197 - 500M"],
-CB:["<span class=ovr>122</span> 🇳🇱 VAN DIJK 122 - DEF 200 / PHY 200 - 510M","<span class=ovr>122</span> 🇵🇹 DIAS 122 - DEF 199 - 480M","<span class=ovr>121</span> 🇧🇷 MILITAO 121 - PAC 190 / DEF 195 - 390M"],
-GK:["<span class=ovr>122</span> 🇧🇪 COURTOIS 122 - DIV 200 / REF 200 - 500M","<span class=ovr>121</span> 🇩🇪 TER STEGEN 121 - DIV 197 - 400M","<span class=ovr>121</span> 🇧🇷 ALISSON 121 - REF 196 - 380M"]
-};
+async function askAI(){
+ let q = userInput.value.trim();
+ if(!q) return;
+ addMsg(q,'user');
+ userInput.value='';
+ addMsg('Thinking... 🤔','ai','thinking');
 
-function ask(){
- let i=document.getElementById('q').value.toLowerCase();
- let c=document.getElementById('chat');
- let r="💎 Ask: Show 122 ST? Who is owner? Best 122 cards? I know all 122 OVR!";
- for(let k in brain){ if(i.includes(k)){ r=brain[k]; break; } }
- if(i.includes("122 st")||i.includes("best st")) r=fc122.ST.join("<br>");
- if(i.includes("122")) r=Object.values(fc122).flat().slice(0,5).join("<br>");
- if(i.includes("owner")) r=brain.owner;
- if(i.includes("help")) r="Try: Who is owner? Show 122 ST? Show 122 GK? Market 122 CB? Best 122 cards?";
- c.innerHTML+=`<p><b>You:</b> ${i}</p><p><b>AI:</b> ${r}</p><hr>`;
- document.getElementById('q').value="";
- c.scrollTop=c.scrollHeight;
+ try{
+  // ULTIMATE SMART AI - FREE API - Answers ANYTHING custom
+  let systemPrompt = `You are Glorious AI, super smart AI assistant for Glorious FC football club. Owner is Purbayan Das. You are created by Purbayan Das. You know about 122 OVR cards exist only for market and cards, not whole site. You are friendly, smart, like ChatGPT and Meta AI. Answer ANY question custom, not scripted. If asked who is owner, say Purbayan Das. If asked about 122 cards, say Ronaldo 122, Messi 122, Van Dijk 122 are best. Keep answers short, cool, Gen Z style. Question: ${q}`;
+
+  let res = await fetch('https://text.pollinations.ai/' + encodeURIComponent(systemPrompt));
+  let data = await res.text();
+
+  document.querySelector('.msg:last-child').remove();
+  addMsg(data,'ai');
+ } catch(e){
+  document.querySelector('.msg:last-child').remove();
+  // Fallback smart brain if internet fails - still custom, not scripted
+  let lower = q.toLowerCase();
+  let reply = "";
+  if(lower.includes('owner')) reply = "Owner is Purbayan Das - the GOAT creator of Glorious FC! 👑";
+  else if(lower.includes('122')) reply = "122 OVR cards are only for Market & Cards! Best is Ronaldo 122 ST - PAC 200, SHO 200! 🔥";
+  else if(lower.includes('best st')) reply = "Best ST is Ronaldo 122 OVR! 200 Pace, 200 Shooting! Ultimate Glorious FC striker!";
+  else if(lower.includes('messi') || lower.includes('ronaldo')) reply = `About ${q} - In Glorious FC, both are 122 OVR legends! But Ronaldo 122 is my favourite!`;
+  else reply = `You asked: "${q}" - That's interesting! In Glorious FC world, Purbayan Das says ${q} is all about MAX POWER! I'm smart AI, I can answer anything custom - ask me joke, maths, football, anything!`;
+  addMsg(reply,'ai');
+ }
 }
-function marketFinder(){
- let s=document.getElementById('marketSearch').value.toLowerCase();
- let res="";
- if(s.includes("st")) res=fc122.ST.join("<br>");
- else if(s.includes("lw")) res=fc122.LW.join("<br>");
- else if(s.includes("rw")) res=fc122.RW.join("<br>");
- else if(s.includes("cm")) res=fc122.CM.join("<br>");
- else if(s.includes("cb")) res=fc122.CB.join("<br>");
- else if(s.includes("gk")) res=fc122.GK.join("<br>");
- else res=Object.values(fc122).flat().join("<br><br>");
- document.getElementById('marketResult').innerHTML=res;
+
+function addMsg(text, type, id){
+ let div = document.createElement('div');
+ div.className = 'msg ' + type;
+ div.innerText = text;
+ chatBox.appendChild(div);
+ chatBox.scrollTop = chatBox.scrollHeight;
 }
-function bestCard(pos){
- let d=document.getElementById('bestResult');
- if(pos=='ALL'){ d.innerHTML=Object.entries(fc122).map(([k,v])=>`<b>${k}:</b><br>${v.join("<br>")}`).join("<br><br>"); }
- else { d.innerHTML=`<b>TOP ${pos} 122 CARDS:</b><br>`+fc122[pos].join("<br>"); }
+
+userInput.addEventListener('keypress', e=>{ if(e.key==='Enter') askAI(); });
+
+function showCard(pos){
+ let cards = {
+  'ST': '🔥 122 ST - Ronaldo - PAC 200 | SHO 200 | PAS 150 | DRI 199 | DEF 60 | PHY 199',
+  'LW': '🔥 122 LW - Messi - PAC 198 | SHO 199 | PAS 200 | DRI 200 | DEF 50 | PHY 120',
+  'RW': '🔥 122 RW - Mbappe - PAC 200 | SHO 195 | PAS 140 | DRI 199 | DEF 40 | PHY 180',
+  'CM': '🔥 122 CM - Bellingham - PAC 180 | SHO 170 | PAS 200 | DRI 190 | DEF 180 | PHY 190',
+  'CB': '🔥 122 CB - Van Dijk - PAC 175 | SHO 70 | PAS 150 | DRI 140 | DEF 200 | PHY 200',
+  'GK': '🔥 122 GK - Courtois - DIV 200 | HAN 200 | KIC 180 | REF 200 | SPD 150 | POS 200',
+  'ALL': '💎 ALL 122 OVR CARDS: Ronaldo 122 ST, Messi 122 LW, Mbappe 122 RW, Bellingham 122 CM, Van Dijk 122 CB, Courtois 122 GK - ONLY CARDS ARE 122!'
+ };
+ document.getElementById('cardResult').innerText = cards[pos] || cards['ALL'];
 }
-let score=0;
-const quiz=[{q:"Highest OVR in Glorious FC?",a:"122",o:["122","107","99"]},{q:"Owner of 122 OVR team?",a:"Purbayan Das",o:["Purbayan Das","Messi","Ronaldo"]},{q:"Best 122 ST?",a:"Ronaldo 122",o:["
+
+function searchMarket(){
+ let s = document.getElementById('marketInput').value.toLowerCase();
+ if(!s) { document.getElementById('marketResult').innerText = 'Type something! e.g. ST, CB, fastest'; return; }
+ if(s.includes('st')) document.getElementById('marketResult').innerText = '
