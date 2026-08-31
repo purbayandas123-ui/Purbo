@@ -3,32 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glorious FC v7.5 Infinite Music</title>
+<title>Glorious FC v7.6 Wide</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#0a0a0a;color:white}
-.header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:12px;text-align:center;font-weight:bold}
-.nav{display:flex;flex-wrap:wrap;background:#111;border-bottom:2px solid #FFD700;gap:5px;padding:8px}
-.nav-btn{padding:9px;border-radius:20px;border:1px solid #FFD700;background:#222;color:#FFD700;font-weight:bold;cursor:pointer;font-size:10px;flex:1;min-width:80px}
-.nav-btn.active{background:#FFD700;color:black}
-.section{display:none;padding:10px}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial, sans-serif}
+body{background:#0a0a0a;color:white;min-height:100vh}
+.header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:18px;text-align:center;font-weight:bold;font-size:16px;letter-spacing:1px}
+.nav{display:flex;flex-wrap:wrap;background:#151515;border-bottom:3px solid #FFD700;gap:10px;padding:14px 10px}
+.nav-btn{padding:14px 16px;border-radius:28px;border:2px solid #FFD700;background:#222;color:#FFD700;font-weight:bold;cursor:pointer;font-size:13px;flex:1;min-width:110px;text-align:center;transition:0.2s}
+.nav-btn.active{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;transform:scale(1.05);box-shadow:0 4px 12px rgba(255,215,0,0.4)}
+.section{display:none;padding:16px;min-height:70vh}
 .section.active{display:block}
-.box{border:2px solid #FFD700;border-radius:12px;padding:12px;background:#111;margin-bottom:10px}
-.title{font-weight:bold;margin-bottom:8px;color:#FFD700}
-select,input{width:100%;padding:10px;border-radius:8px;border:1px solid #FFD700;background:#000;color:white;margin-bottom:6px}
-button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none;padding:10px;border-radius:8px;font-weight:bold;cursor:pointer;width:100%;margin-bottom:5px}
-.small{width:auto;padding:8px 12px;margin-right:4px}
-.progress{width:100%;height:8px;background:#333;border-radius:4px;margin:8px 0;overflow:hidden}
+.box{border:3px solid #FFD700;border-radius:16px;padding:20px;background:linear-gradient(180deg,#1a1a1a,#111);margin-bottom:16px;box-shadow:0 6px 20px rgba(255,215,0,0.15)}
+.title{font-weight:bold;margin-bottom:12px;color:#FFD700;font-size:16px}
+select,input{width:100%;padding:14px;border-radius:12px;border:2px solid #FFD700;background:#000;color:white;margin-bottom:10px;font-size:14px}
+button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none;padding:14px;border-radius:12px;font-weight:bold;cursor:pointer;width:100%;margin-bottom:8px;font-size:14px;box-shadow:0 3px 10px rgba(255,215,0,0.3)}
+.small{width:auto;padding:10px 16px;margin-right:6px;font-size:12px;display:inline-block}
+.progress{width:100%;height:10px;background:#333;border-radius:5px;margin:12px 0;overflow:hidden}
 .progress-bar{height:100%;background:linear-gradient(90deg,#FFD700,#FF8C00);width:0%;transition:width 0.3s}
-.lineup-field{background:#0a4a0a;border:2px solid #FFD700;border-radius:12px;padding:10px;min-height:350px}
-.pos-row{display:flex;justify-content:center;gap:6px;margin:10px 0}
-.player-slot{width:68px;height:58px;background:#111;border:1px solid #FFD700;border-radius:8px;padding:4px;text-align:center;font-size:9px;display:flex;flex-direction:column;justify-content:center}
-.filled{background:#222!important;border-color:#00FF88!important}
-.ovr{color:#FFD700;font-weight:bold}
+.lineup-field{background:linear-gradient(180deg,#0d5a0d,#0a3a0a);border:3px solid #FFD700;border-radius:16px;padding:16px;min-height:420px}
+.pos-row{display:flex;justify-content:center;gap:10px;margin:14px 0}
+.player-slot{width:78px;height:68px;background:#111;border:2px solid #FFD700;border-radius:10px;padding:6px;text-align:center;font-size:10px;display:flex;flex-direction:column;justify-content:center}
+.filled{background:linear-gradient(180deg,#333,#111)!important;border-color:#00FF88!important;box-shadow:0 2px 8px rgba(0,255,136,0.3)}
+.ovr{color:#FFD700;font-weight:bold;font-size:13px}
+.market{background:#000;border-radius:10px;padding:12px;margin-top:8px;border:2px dashed #FFD700;font-size:12px;line-height:1.5}
 </style>
 </head>
 <body>
-<div class="header">👑 v7.5 INFINITE MUSIC + All Modes</div>
+<div class="header">👑 GLORIOUS FC v7.6 WIDE + SPACIOUS + INFINITE MUSIC</div>
 <div class="nav">
 <button id="btn-home" class="nav-btn active" onclick="openTab('home')">🏠 Home</button>
 <button id="btn-lineup" class="nav-btn" onclick="openTab('lineup')">⚽ Lineup</button>
@@ -38,63 +39,44 @@ button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none
 <button id="btn-market" class="nav-btn" onclick="openTab('market')">🔍 Market</button>
 </div>
 
-<div id="home" class="section active"><div class="box"><div class="title">v7.5 Infinite Music Fixed!</div><p style="font-size:12px">✅ Music now INFINITE - no more 3 sec!<br>✅ Loop + Timer + Progress bar<br>✅ 5 Long songs 2-3 min each!</p><button onclick="openTab('music')">Go to Music ∞</button></div></div>
+<div id="home" class="section active"><div class="box"><div class="title">🏠 v7.6 WIDE & SPACIOUS - Fixed Thin Issue!</div><p style="font-size:14px;line-height:1.8">✅ Buttons BIG again - padding 14px!<br>✅ Boxes WIDE - padding 20px, border 3px!<br>✅ Text BIG - 14px, spacious!<br>✅ No more thinner/tighter!<br>✅ Music Infinite + Timer still there!</p><button onclick="openTab('lineup')">⚽ Go to Lineup Builder</button><button onclick="openTab('music')" style="background:#222;color:#FFD700;border:2px solid #FFD700">🎵 Go to Infinite Music</button><button onclick="openTab('story')" style="background:#222;color:#FFD700;border:2px solid #FFD700">📖 Storyteller</button></div></div>
 
-<div id="music" class="section"><div class="box"><div class="title">🎵 Music - INFINITE TIMER + LOOP MODE</div>
-<div style="background:#000;border-radius:8px;padding:10px;margin-bottom:8px;border:1px solid #FFD700">
-<div id="songName" style="color:#FFD700;font-weight:bold;font-size:13px">Champions Anthem - Infinite Loop</div>
-<div style="display:flex;justify-content:space-between;font-size:11px;margin:4px 0"><span id="currentTime">00:00</span><span id="totalTime">00:00</span><span id="loopStatus" style="color:#00FF88">♾️ Infinite Loop ON</span></div>
+<div id="music" class="section"><div class="box"><div class="title">🎵 Music - INFINITE LOOP + Timer - WIDE</div>
+<div style="background:#000;border-radius:12px;padding:16px;margin-bottom:12px;border:2px solid #FFD700">
+<div id="songName" style="color:#FFD700;font-weight:bold;font-size:16px;margin-bottom:8px">Champions Epic - Infinite Loop ♾️</div>
+<div style="display:flex;justify-content:space-between;font-size:13px;margin:6px 0"><span id="currentTime" style="color:#FFD700">00:00</span><span id="totalTime">00:00</span><span id="loopStatus" style="color:#00FF88;font-weight:bold">♾️ Infinite ON</span></div>
 <div class="progress"><div id="progressBar" class="progress-bar"></div></div>
 <audio id="bgm" loop preload="auto"></audio>
-<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px">
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">
 <button class="small" onclick="playMusic()">▶️ Play</button>
-<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="pauseMusic()">⏸️ Pause</button>
-<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="prevSong()">⏮️ Prev</button>
-<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="nextSong()">⏭️ Next</button>
-<button class="small" style="background:#00FF88;color:black" onclick="toggleLoop()">♾️ Loop ON/OFF</button>
-<button class="small" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="testVoice()">🎤 Voice</button>
+<button class="small" style="background:#222;color:#FFD700;border:2px solid #FFD700" onclick="pauseMusic()">⏸️ Pause</button>
+<button class="small" style="background:#222;color:#FFD700;border:2px solid #FFD700" onclick="prevSong()">⏮️ Prev</button>
+<button class="small" style="background:#222;color:#FFD700;border:2px solid #FFD700" onclick="nextSong()">⏭️ Next</button>
+<button class="small" style="background:#00FF88;color:black" onclick="toggleLoop()">♾️ Loop</button>
 </div>
 </div>
-<label style="font-size:11px">Playlist - 5 Long Songs (2-4 min each) - Infinite:</label>
-<select id="songList" onchange="selectSong()"></select>
-<label style="font-size:11px;margin-top:6px;display:block">Voice Changer:</label><select id="voiceSelect"></select>
-<div style="background:#001100;border:1px solid #00FF88;border-radius:8px;padding:8px;margin-top:8px;font-size:11px;color:#00FF88">♾️ INFINITE MODE: Song auto-restarts when ends! Never stops! Timer counts 00:00 to end then loops infinite! If you want stop, press Pause.</div>
+<label style="font-size:13px;font-weight:bold">Playlist - 5 Long Songs (Full 3-4 min):</label><select id="songList" onchange="selectSong()"></select>
+<label style="font-size:13px;font-weight:bold;margin-top:10px;display:block">Voice Changer:</label><select id="voiceSelect"></select><button class="small" style="margin-top:8px;background:#222;color:#FFD700;border:2px solid #FFD700" onclick="testVoice()">🎤 Test Voice</button>
+<div style="background:#001100;border:2px solid #00FF88;border-radius:10px;padding:12px;margin-top:12px;font-size:13px;color:#00FF88">♾️ INFINITE: Song loops forever! Progress bar moves! Timer counts! No more 3 sec!</div>
 </div></div>
 
-<div id="story" class="section"><div class="box"><div class="title">📖 Storyteller + Voice</div><select id="storyPlayer"><option value="messi">Messi GOAT 122</option><option value="ronaldo">Ronaldo 122</option><option value="mbappe">Mbappe 121</option></select><div style="display:flex;gap:6px"><button style="flex:1" onclick="tellStory()">📖 Read</button><button style="flex:1;background:#00FF88;color:black" onclick="speakStory()">🔊 Voice</button><button style="flex:1;background:#222;color:#FFD700;border:1px solid #FFD700" onclick="stopVoice()">⏹️ Stop</button></div><div id="storyResult" style="background:#000;border:1px dashed #FFD700;border-radius:8px;padding:8px;margin-top:6px;min-height:80px;font-size:12px">Tap Read...</div></div></div>
+<div id="story" class="section"><div class="box"><div class="title">📖 Storyteller AI + Voice - WIDE</div><select id="storyPlayer"><option value="messi">Messi GOAT - 122 OVR</option><option value="ronaldo">Ronaldo - 122</option><option value="mbappe">Mbappe - 121</option><option value="haaland">Haaland - 121</option></select><div style="display:flex;gap:8px;margin-top:10px"><button style="flex:1" onclick="tellStory()">📖 Read Story</button><button style="flex:1;background:#00FF88;color:black" onclick="speakStory()">🔊 AI Voice Speak</button><button style="flex:1;background:#222;color:#FFD700;border:2px solid #FFD700" onclick="stopVoice()">⏹️ Stop</button></div><div id="storyResult" class="market" style="min-height:120px;margin-top:12px">Tap Read Story... Messi from Rosario to GOAT!</div></div></div>
 
-<div id="ai" class="section"><div class="box"><div class="title">🧠 AI</div><div id="chatBox" style="height:180px;overflow-y:auto;background:#000;border-radius:8px;padding:8px;margin-bottom:6px">Hi!</div><input id="userInput" placeholder="Ask..."><button onclick="askAI()">ASK</button></div></div>
+<div id="ai" class="section"><div class="box"><div class="title">🧠 AI Chat - WIDE</div><div id="chatBox" style="height:280px;overflow-y:auto;background:#000;border-radius:12px;padding:12px;margin-bottom:10px;border:2px solid #333">Hi! Ask anything!</div><input id="userInput" placeholder="Ask doubts..."><button onclick="askAI()">ASK AI</button></div></div>
 
-<div id="lineup" class="section"><div class="box"><div class="title">⚽ Lineup 110-122 + Rank 1-5 + Training</div><select id="formation"><option value="433">4-3-3</option><option value="442">4-4-2</option></select><select id="playerList"></select><select id="rankup"><option value="1">Rank 1 (+1)</option><option value="5" selected>Rank 5 (+5) MAX</option></select><select id="training"><option value="0">No Training</option><option value="30" selected>Maxed 30/30</option></select><button onclick="addPlayer()">➕ Add</button><button style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="clearLineup()">Clear</button><div id="calcResult" style="background:#001100;border:2px solid #00FF88;border-radius:8px;padding:8px;margin-top:8px;color:#00FF88;font-weight:bold">Team OVR: 0</div></div><div class="lineup-field" id="lineupField"></div></div>
+<div id="lineup" class="section"><div class="box"><div class="title">⚽ Lineup Builder 110-122 + Rank 1-5 + Training Max - WIDE</div>
+<div style="background:#000;padding:14px;border-radius:12px;margin-bottom:12px;border:2px solid #333">
+<select id="formation"><option value="433">4-3-3 Attack</option><option value="442">4-4-2</option><option value="343">3-4-3</option></select>
+<select id="playerList"></select>
+<select id="rankup"><option value="1">Rank 1 (+1)</option><option value="2">Rank 2 (+2)</option><option value="3">Rank 3 (+3)</option><option value="4">Rank 4 (+4)</option><option value="5" selected>Rank 5 (+5) MAX</option></select>
+<select id="training"><option value="0">No Training</option><option value="30" selected>Maxed 30/30</option></select>
+<button onclick="addPlayer()">➕ Add Player to Field</button><button style="background:#222;color:#FFD700;border:2px solid #FFD700" onclick="clearLineup()">Clear All</button>
+<div id="calcResult" style="background:#001100;border:3px solid #00FF88;border-radius:12px;padding:14px;margin-top:12px;color:#00FF88;font-weight:bold;font-size:13px">Team OVR: 0 - Add players!</div>
+</div>
+<div class="lineup-field" id="lineupField">Loading green field...</div>
+</div></div>
 
-<div id="market" class="section"><div class="box"><div class="title">Market 110-122</div><div id="playerDB"></div></div></div>
+<div id="market" class="section"><div class="box"><div class="title">🔍 Players DB 110-122 - WIDE</div><div id="playerDB" class="market" style="max-height:500px;overflow-y:auto"></div></div></div>
 
 <script>
-const players=[{name:"Messi",pos:"RW",ovr:122,base:122},{name:"Ronaldo",pos:"ST",ovr:122,base:122},{name:"Mbappe",pos:"ST",ovr:121,base:121},{name:"Haaland",pos:"ST",ovr:121,base:121},{name:"Van Dijk",pos:"CB",ovr:122,base:122},{name:"Bellingham",pos:"CM",ovr:122,base:122},{name:"Vinicius",pos:"LW",ovr:121,base:121},{name:"Courtois",pos:"GK",ovr:121,base:121},{name:"Salah",pos:"RW",ovr:120,base:120},{name:"Pedri",pos:"CM",ovr:115,base:115},{name:"Saka",pos:"RW",ovr:114,base:114},{name:"Gavi",pos:"CM",ovr:112,base:112},{name:"Rashford",pos:"LW",ovr:110,base:110}];
-let lineup=[];
-const songs=[{name:"Champions Epic - 3:20 Loop ∞",url:"https://commondatastorage.googleapis.com/codeskulptor-assets/week7-bounce.m4a",long:true},{name:"Stadium Anthem - 2:45 Infinite",url:"https://commondatastorage.googleapis.com/codeskulptor-assets/week7-button.m4a",long:true},{name:"Victory Song - 3:00 Loop",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"},{name:"Glory Football - 2:30 ∞",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"},{name:"GOAT Theme - 3:15 Infinite",url:"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"}];
-let curSong=0;let isLoop=true;let timerInt=null;
-function openTab(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));document.getElementById(id).classList.add('active');document.getElementById('btn-'+id).classList.add('active'); if(id==='lineup') setTimeout(renderField,100);}
-function init(){let sel=document.getElementById('playerList');players.sort((a,b)=>b.ovr-a.ovr).forEach((p,i)=>{let o=document.createElement('option');o.value=i;o.text=`${p.name} ${p.pos} ${p.ovr}`;sel.appendChild(o);});document.getElementById('playerDB').innerHTML=players.map(p=>`${p.name} ${p.ovr} -> R5=${p.ovr+5}`).join('<br>');let sList=document.getElementById('songList');songs.forEach((s,i)=>{let o=document.createElement('option');o.value=i;o.text=s.name;sList.appendChild(o);});loadSong(0);renderField();loadVoices();startTimer();}
-function loadSong(i){curSong=i;let a=document.getElementById('bgm');a.src=songs[i].url;a.loop=isLoop;document.getElementById('songName').innerText=songs[i].name;document.getElementById('songList').value=i;a.load();}
-function playMusic(){document.getElementById('bgm').play();}function pauseMusic(){document.getElementById('bgm').pause();}
-function nextSong(){curSong=(curSong+1)%songs.length;loadSong(curSong);playMusic();}function prevSong(){curSong=(curSong-1+songs.length)%songs.length;loadSong(curSong);playMusic();}
-function selectSong(){loadSong(parseInt(document.getElementById('songList').value));playMusic();}
-function toggleLoop(){isLoop=!isLoop;document.getElementById('bgm').loop=isLoop;document.getElementById('loopStatus').innerText=isLoop?'♾️ Infinite Loop ON':'Loop OFF';document.getElementById('loopStatus').style.color=isLoop?'#00FF88':'#888';}
-function startTimer(){let a=document.getElementById('bgm');timerInt=setInterval(()=>{if(a.duration){let cur=a.currentTime;let tot=a.duration;document.getElementById('currentTime').innerText=formatTime(cur);document.getElementById('totalTime').innerText=formatTime(tot);document.getElementById('progressBar').style.width=(cur/tot*100)+'%';} },200); a.addEventListener('ended',()=>{if(isLoop){a.currentTime=0;a.play();}else nextSong();}); a.addEventListener('loadedmetadata',()=>{document.getElementById('totalTime').innerText=formatTime(a.duration);});}
-function formatTime(s){if(isNaN(s)) return '00:00';let m=Math.floor(s/60);let sec=Math.floor(s%60);return (m<10?'0'+m:m)+':'+(sec<10?'0'+sec:sec);}
-function loadVoices(){let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');sel.innerHTML="";vs.forEach((v,i)=>{let o=document.createElement('option');o.value=i;o.text=v.name.substring(0,25);sel.appendChild(o);});}
-speechSynthesis.onvoiceschanged=loadVoices;setTimeout(loadVoices,800);
-function testVoice(){let u=new SpeechSynthesisUtterance("Infinite music now! No more 3 second! Loops forever!");let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');if(vs[sel.value]) u.voice=vs[sel.value];speechSynthesis.speak(u);}
-function tellStory(){let p=document.getElementById('storyPlayer').value;let stories={messi:"Messi born 1987 Rosario. Growth hormone issue at 13. Barcelona paid. 8 Ballon d'Or, World Cup 2022 GOAT 122!",ronaldo:"Ronaldo 1985 Madeira. 5 Ballon d'Or, 5 UCL, top scorer ever 122!",mbappe:"Mbappe 1998 Paris fastest! World Cup 2018 at 19! 121 OVR!"};document.getElementById('storyResult').innerText=stories[p];}
-function speakStory(){let txt=document.getElementById('storyResult').innerText;let u=new SpeechSynthesisUtterance(txt);let vs=speechSynthesis.getVoices();let sel=document.getElementById('voiceSelect');if(vs[sel.value]) u.voice=vs[sel.value];speechSynthesis.speak(u);}function stopVoice(){speechSynthesis.cancel();}
-function renderField(){let f=document.getElementById('formation').value;let slots={433:["ST","LW","RW","CM","CM","CM","LB","CB","CB","RB","GK"],442:["ST","ST","LM","CM","CM","RM","LB","CB","CB","RB","GK"]}[f];let field=document.getElementById('lineupField');let html=`<div style="text-align:center;color:#FFD700;font-size:12px">Formation ${f} - ${lineup.length}/11</div>`;for(let i=0;i<slots.length;i+=3){html+='<div class="pos-row">';for(let j=i;j<Math.min(i+3,slots.length);j++){let lp=lineup[j];if(lp) html+=`<div class="player-slot filled" onclick="removePlayer(${j})"><div class="ovr">${lp.realOVR}</div><div>${lp.name}</div><div>R${lp.rank}</div></div>`;else html+=`<div class="player-slot"><div>${slots[j]}</div><div>Empty</div></div>`;}html+='</div>';}field.innerHTML=html;calc();}
-function addPlayer(){let p=players[document.getElementById('playerList').value];let rank=parseInt(document.getElementById('rankup').value);let training=parseInt(document.getElementById('training').value);let realOVR=p.base+rank;if(lineup.length>=11){alert('Full');return;}lineup.push({name:p.name,pos:p.pos,base:p.base,rank,realOVR,training});renderField();}
-function removePlayer(i){lineup.splice(i,1);renderField();}function clearLineup(){lineup=[];renderField();}
-function calc(){if(lineup.length==0){document.getElementById('calcResult').innerHTML='Team OVR: 0';return;}let total=lineup.reduce((s,p)=>s+p.realOVR,0);let avg=Math.floor(total/lineup.length);let real=avg+(lineup.some(l=>l.training==30)?2:0);document.getElementById('calcResult').innerHTML=`Team OVR: ${avg} | Real: ${real} | Players: ${lineup.length}/11`;}
-function askAI(){let q=document.getElementById('userInput').value;document.getElementById('chatBox').innerHTML+=`<div style="background:#FFD700;color:black;padding:5px;border-radius:6px;margin:3px 0;text-align:right">${q}</div>`;document.getElementById('chatBox').innerHTML+=`<div style="background:#222;padding:5px;border-radius:6px;margin:3px 0">Messi 122 best! Music now infinite loop!</div>`;document.getElementById('userInput').value='';}
-document.getElementById('formation').addEventListener('change',renderField);
-init();
-</script>
-</body>
-</html>
+const players=[{name:"Messi",pos:"RW",ovr:122,base:122},{name:"Ronaldo",pos:"ST",ovr:122,base:122},{name:"Mbappe",pos:"ST",ovr:121,base:121},{name:"Haaland",pos:"ST",ovr:121,base:121},{name:"Van Dijk",pos:"CB",ovr:122,base:122},{name:"Bellingham",pos:"CM",ovr:122,base:122},{name:"Vinicius",pos:"
