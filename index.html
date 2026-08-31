@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glorious FC - Ultimate v3</title>
+<title>Glorious FC - v4 AI Voice</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#0a0a0a;color:white;padding:12px}
 .header{background:linear-gradient(90deg,#FFD700,#FF8C00);color:black;padding:18px;text-align:center;border-radius:15px;font-weight:bold;font-size:20px;margin-bottom:12px}
 .box{border:2px solid #FFD700;border-radius:15px;padding:14px;margin-bottom:12px;background:#111}
 .title{font-weight:bold;margin-bottom:10px;font-size:15px;color:#FFD700}
-#chatBox{height:280px;overflow-y:auto;background:#000;border-radius:10px;padding:10px;margin-bottom:10px;border:1px solid #333}
+#chatBox{height:260px;overflow-y:auto;background:#000;border-radius:10px;padding:10px;margin-bottom:10px;border:1px solid #333}
 .msg{padding:9px 12px;border-radius:12px;margin:7px 0;max-width:92%;line-height:1.4;font-size:14px}
 .user{background:#FFD700;color:black;margin-left:auto;text-align:right;font-weight:bold}
 .ai{background:#222;color:#fff;border:1px solid #444}
@@ -19,119 +19,109 @@ button{background:linear-gradient(90deg,#FFD700,#FFA500);color:black;border:none
 .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
 .card-btn{background:#222;border:1px solid #FFD700;color:#FFD700;padding:10px;border-radius:10px;font-size:13px}
 .market{background:#000;border-radius:8px;padding:10px;margin-top:8px;border:1px dashed #FFD700;font-size:13px}
-.music-bar{background:#000;padding:8px;border-radius:8px;display:flex;align-items:center;gap:8px;margin-top:8px;border:1px solid #333}
+.music-bar{background:#000;padding:10px;border-radius:10px;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;border:1px solid #333;align-items:center}
+.small-btn{width:auto;padding:7px 12px;font-size:13px}
 </style>
 </head>
 <body>
 
-<div class="header">👑 GLORIOUS FC<br><span style="font-size:12px">Owner: Purbayan Das | Best Player: Messi 122</span></div>
+<div class="header">👑 GLORIOUS FC<br><span style="font-size:12px">Owner: Purbayan Das | Messi 122 GOAT | AI Voice</span></div>
 
 <div class="box">
-<div class="title">🎵 BACKGROUND MUSIC - Glorious Vibes</div>
+<div class="title">🎵 GLORIOUS ANTHEM - New Song</div>
 <div class="music-bar">
-<span>🎧</span>
-<button onclick="document.getElementById('bgm').play()" style="width:auto;padding:6px 12px">Play</button>
-<button onclick="document.getElementById('bgm').pause()" style="width:auto;padding:6px 12px;background:#222;color:#FFD700;border:1px solid #FFD700">Pause</button>
-<span style="font-size:12px">Glorious Anthem</span>
+<button class="small-btn" onclick="playMusic()">▶️ Play Anthem</button>
+<button class="small-btn" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="pauseMusic()">⏸️ Pause</button>
+<button class="small-btn" style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="changeSong()">🔀 Change Song</button>
+<span id="songName" style="font-size:12px;color:#FFD700">Song: Champions Anthem</span>
 </div>
-<audio id="bgm" loop><source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"></audio>
+<audio id="bgm" loop><source id="audioSrc" src="https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3" type="audio/mpeg"></audio>
 </div>
 
 <div class="box">
-<div class="title">🧠 GLORIOUS AI - Custom Doubts + Smart AI</div>
-<div id="chatBox"><div class="msg ai">Hi! I'm Glorious AI v3! Best player is MESSI 122! I solve custom doubts, tell real football stories, play music! Ask anything like "My doubt about offside" or "Who is best?"</div></div>
-<input id="userInput" placeholder="Ask anything: doubts, best player, Hi, jokes...">
+<div class="title">🧠 GLORIOUS AI - Custom Doubts</div>
+<div id="chatBox"><div class="msg ai">Hi! v4 with AI VOICE! Best is MESSI 122! Ask doubts + storyteller will speak!</div></div>
+<input id="userInput" placeholder="Ask: best player? my doubt?">
 <button onclick="askAI()">ASK AI ✨</button>
+<button style="background:#222;color:#FFD700;border:1px solid #FFD700" onclick="speakLast()">🔊 Speak Last Answer</button>
 </div>
 
 <div class="box">
-<div class="title">📖 STORYTELLER MODE - Real Football Stories</div>
+<div class="title">📖 STORYTELLER AI VOICE - Real Stories</div>
 <select id="storyPlayer">
-<option value="messi">Lionel Messi</option>
+<option value="messi">Lionel Messi - GOAT</option>
 <option value="ronaldo">Cristiano Ronaldo</option>
-<option value="neymar">Neymar</option>
-<option value="mbappe">Mbappe</option>
-<option value="haaland">Haaland</option>
-<option value="bellingham">Bellingham</option>
+<option value="neymar">Neymar Jr</option>
+<option value="mbappe">Kylian Mbappe</option>
+<option value="haaland">Erling Haaland</option>
+<option value="bellingham">Jude Bellingham</option>
 </select>
-<button onclick="tellStory()">TELL REAL STORY 📚</button>
-<div id="storyResult" class="market">Select player and get real inspiring story!</div>
+<button onclick="tellStory()">📚 Read Story</button>
+<button onclick="speakStory()" style="background:#00FF88;color:black">🔊 AI VOICE TELL STORY</button>
+<button onclick="stopVoice()" style="background:#222;color:#FFD700;border:1px solid #FFD700">🔇 Stop Voice</button>
+<div id="storyResult" class="market">Select player -> Read Story -> AI Voice will speak real story!</div>
 </div>
 
 <div class="box">
-<div class="title">🔍 MARKET FINDER - 122 OVR CARDS ONLY</div>
-<input id="marketInput" placeholder="Search: ST, CB, Fastest, Messi 122...">
-<button onclick="searchMarket()">SEARCH 122 CARDS 🚀</button>
-<div id="marketResult" class="market">Best player is Messi 122 OVR!</div>
-</div>
-
-<div class="box">
-<div class="title">⭐ 122 RATED BEST CARDS - Messi is GOAT</div>
+<div class="title">⭐ 122 CARDS - Messi Best</div>
 <div class="card-grid">
 <button class="card-btn" onclick="showCard('ST')">122 ST Messi</button>
-<button class="card-btn" onclick="showCard('LW')">122 LW Messi</button>
+<button class="card-btn" onclick="showCard('LW')">122 LW</button>
 <button class="card-btn" onclick="showCard('RW')">122 RW</button>
 <button class="card-btn" onclick="showCard('CM')">122 CM</button>
 <button class="card-btn" onclick="showCard('CB')">122 CB</button>
 <button class="card-btn" onclick="showCard('GK')">122 GK</button>
 </div>
-<button style="margin-top:10px" onclick="showCard('ALL')">SHOW ALL 122 CARDS</button>
-<div id="cardResult" class="market" style="margin-top:10px">Click to see 122 cards - Best is Messi 122!</div>
+<div id="cardResult" class="market" style="margin-top:10px">Messi 122 is BEST!</div>
 </div>
 
 <script>
-function addMsg(t,c){let b=document.getElementById('chatBox');let d=document.createElement('div');d.className='msg '+c;d.innerText=t;b.appendChild(d);b.scrollTop=b.scrollHeight;}
+let lastAIText=""; let lastStoryText="";
+const songs=[
+ {name:"Champions Anthem",url:"https://cdn.pixabay.com/download/audio/2022/06/07/audio_b9bd4170e8.mp3"},
+ {name:"Epic Football Beat",url:"https://cdn.pixabay.com/download/audio/2021/08/04/audio_0625c1539c.mp3"},
+ {name:"Stadium Power",url:"https://cdn.pixabay.com/download/audio/2022/10/30/audio_08a90a8a9d.mp3"}
+];
+let curSong=0;
+
+function playMusic(){document.getElementById('bgm').play();document.getElementById('songName').innerText="Playing: "+songs[curSong].name;}
+function pauseMusic(){document.getElementById('bgm').pause();}
+function changeSong(){curSong=(curSong+1)%songs.length;let a=document.getElementById('bgm');a.src=songs[curSong].url;a.play();document.getElementById('songName').innerText="Playing: "+songs[curSong].name;}
+
+function addMsg(t,c){let b=document.getElementById('chatBox');let d=document.createElement('div');d.className='msg '+c;d.innerText=t;b.appendChild(d);b.scrollTop=b.scrollHeight;if(c==='ai') lastAIText=t;}
 
 function askAI(){
  let q=document.getElementById('userInput').value.trim();if(!q) return;
  addMsg(q,'user');document.getElementById('userInput').value='';
  setTimeout(()=>{
   let l=q.toLowerCase();let r="";
-  if(l==="hi"||l==="hello"||l==="hey"){r="Hello! 👋 Welcome to Glorious FC! Best player is MESSI 122 OVR GOAT! How can I solve your custom doubt?";}
-  else if(l.includes("owner")){r="Owner is Purbayan Das 👑 - Creator of Glorious FC! Best player in his club is Messi 122!";}
-  else if(l.includes("best player")||l.includes("goat")){r="Best player is MESSI 122 OVR! 🐐 PAC 198, SHO 199, PAS 200, DRI 200 - The true GOAT of Glorious FC! Better than Ronaldo! Owner Purbayan Das says Messi is best!";}
-  else if(l.includes("doubt")||l.includes("help")||l.includes("how")||l.includes("what")||l.includes("why")){
-    r=`Your custom doubt: "${q}" - Great question! In Glorious FC, we solve it like Messi 122 would: with skill! Answer: ${q} is about learning and passion. Messi started small too! Want story of Messi? Use Storyteller Mode below!`;
-  }
-  else if(l.includes("messi")){r=`About Messi - "${q}" - Messi 122 is BEST PLAYER in Glorious FC! Real story: From Rosario to World Cup winner 2022! GOAT with 8 Ballon d'Or! PAC 198 SHO 199 PAS 200!`;}
-  else if(l.includes("ronaldo")){r=`Ronaldo is 122 OVR too, but in Glorious FC, Messi is BEST! Ronaldo 122 ST has PAC 200 SHO 200, but Messi 122 has better DRI 200 & PAS 200!`;}
-  else{r=`You said: "${q}" - Custom answer from Glorious AI! Purbayan Das made me to answer ANYTHING! Best player is Messi 122! If doubt, ask clearly or use Storyteller for real football stories!`;}
+  if(l.includes("best")||l.includes("goat")) r="MESSI 122 is BEST! 🐐 PAC 198 SHO 199 PAS 200 DRI 200! 8 Ballon d'Or! Owner Purbayan Das says Messi GOAT!";
+  else if(l.includes("owner")) r="Owner is Purbayan Das! Glorious FC king! Best player Messi 122!";
+  else if(l.includes("doubt")) r=`Your doubt "${q}" - Solved! In football like Messi 122, solution is skill + practice! Ask storyteller for real inspiration!`;
+  else if(l.includes("messi")) r="Messi 122 GOAT story: Rosario boy with growth issue to World Cup 2022 winner! Best ever!";
+  else r=`Custom: "${q}" - I understand! Messi 122 way: work hard! Use AI Voice button to hear me speak!`;
   addMsg(r,'ai');
  },400);
 }
+function speakLast(){if(!lastAIText) return;stopVoice();let u=new SpeechSynthesisUtterance(lastAIText);u.rate=0.9;u.pitch=1;speechSynthesis.speak(u);}
+function speakStory(){if(!lastStoryText) {tellStory(); setTimeout(speakStory,600); return;} stopVoice(); let u=new SpeechSynthesisUtterance(lastStoryText);u.rate=0.85;u.pitch=1;u.volume=1; speechSynthesis.speak(u);}
+function stopVoice(){speechSynthesis.cancel();}
 
 function tellStory(){
  let p=document.getElementById('storyPlayer').value;
  let stories={
-  messi:"🐐 MESSI REAL STORY: Born 1987 Rosario, Argentina. Growth hormone deficiency at 13, Barcelona paid treatment. Debut 2004, 672 goals for Barca, 8 Ballon d'Or, World Cup 2022 winner! Struggle to GOAT! Lesson: Never give up!",
-  ronaldo:"⚽ RONALDO REAL STORY: Born 1985 Madeira, poor family. Father kit man. At 12 left home for Sporting. Hard work, 5 Ballon d'Or, 5 UCL, 900+ goals! From poverty to legend! Lesson: Hard work beats talent!",
-  neymar:"🇧🇷 NEYMAR REAL STORY: Born 1992, Santos prodigy. Most expensive transfer 222M to PSG 2017. Skill magician, injuries struggled but joy of football! Lesson: Play with joy!",
-  mbappe:"🚀 MBAPPE REAL STORY: Born 1998 Paris, son of football coach. World Cup winner at 19 in 2018! Fastest 122 RW, idol Ronaldo. Lesson: Young can achieve big!",
-  haaland:"🤖 HAALAND REAL STORY: Born 2000, son of footballer. Leeds born, Norway raised. Goal machine, Dortmund to Man City, Champions League winner! Lesson: Power + focus!",
-  bellingham:"⭐ BELLINGHAM REAL STORY: Born 2003 England, Birmingham wonderkid. At 17 to Dortmund, now Real Madrid star! 122 CM, mature beyond age! Lesson: Maturity wins!"
+  messi:"Lionel Messi real story. Born 1987 in Rosario Argentina. At 13 diagnosed with growth hormone deficiency. Barcelona paid his treatment. Debut 2004. Scored 672 goals for Barcelona. Won 8 Ballon d'Or. Lost World Cup final 2014, cried, but never gave up. Finally won World Cup 2022 at age 35. Greatest of all time. Lesson from Messi 122: Never give up, even if you are small, you can be GOAT.",
+  ronaldo:"Cristiano Ronaldo real story. Born 1985 Madeira Portugal, very poor family. Father was kit man. At 12 left home alone to Sporting Lisbon academy, cried daily. Hard work made him machine. 5 Ballon d'Or, 5 Champions League, 900 plus goals. Lesson: Hard work beats talent when talent doesn't work hard.",
+  neymar:"Neymar Jr real story. Born 1992 Brazil, Santos prodigy. Joy of football, skills, but many injuries. Most expensive transfer 222 million to PSG 2017. Still plays with smile. Lesson: Play with joy like Neymar.",
+  mbappe:"Kylian Mbappe real story. Born 1998 Paris, son of football coach and handball player. At 19 won World Cup 2018, scored in final. Fastest player, idolizes Ronaldo. Lesson: Age is just number, young can win world.",
+  haaland:"Erling Haaland real story. Born 2000 England, son of Alf Inge Haaland. Tall, fast, goal machine. At Dortmund scored for fun, now Man City Champions League winner. Lesson: Focus and power with humility.",
+  bellingham:"Jude Bellingham real story. Born 2003 England, Birmingham City. At 17 moved to Dortmund alone, learned German. Now Real Madrid star at 20, leader. 122 rated CM. Lesson: Maturity and courage take you far."
  };
- document.getElementById('storyResult').innerText=stories[p];
+ lastStoryText=stories[p];
+ document.getElementById('storyResult').innerText=stories[p]+"\n\nTap 🔊 AI VOICE TELL STORY to hear with voice!";
 }
 
-function showCard(pos){
- let c={
-  'ST':'🔥 122 ST - MESSI (BEST) - PAC 198 | SHO 199 | PAS 200 | DRI 200 | PHY 130 - GOAT!',
-  'LW':'🔥 122 LW - MESSI BEST - PAC 198 | SHO 199 | PAS 200 | DRI 200 - Owner Purbayan choice!',
-  'RW':'🔥 122 RW - Messi RW version - PAC 195 | DRI 200',
-  'CM':'🔥 122 CM - Bellingham - PAS 200 | PHY 190',
-  'CB':'🔥 122 CB - Van Dijk - DEF 200 | PHY 200',
-  'GK':'🔥 122 GK - Martinez - DIV 200 | REF 200',
-  'ALL':'💎 ALL 122 CARDS - BEST IS MESSI 122! Messi ST/LW GOAT, Ronaldo 122 ST 2nd, Van Dijk CB, etc. ONLY CARDS ARE 122!'
- };
- document.getElementById('cardResult').innerText=c[pos];
-}
-function searchMarket(){
- let s=document.getElementById('marketInput').value.toLowerCase();
- if(!s){document.getElementById('marketResult').innerText='Type Messi 122, ST, CB...';return;}
- if(s.includes('messi')) document.getElementById('marketResult').innerText='BEST: Messi 122 OVR - GOAT - PAC 198 SHO 199 PAS 200 DRI 200 - Price 3B coins! Owner Purbayan Das favourite!';
- else if(s.includes('best')) document.getElementById('marketResult').innerText='Best player is MESSI 122! GOAT! Better than Ronaldo per Glorious FC!';
- else document.getElementById('marketResult').innerText=`Search "${s}": Found Messi 122 as best! Only cards/market are 122!`;
-}
+function showCard(pos){document.getElementById('cardResult').innerText=pos+" - Messi 122 BEST! PAC 198 SHO 199 PAS 200 DRI 200 - GOAT of Glorious FC!";}
 document.getElementById('userInput').addEventListener('keypress',e=>{if(e.key==='Enter') askAI();});
 </script>
 </body>
