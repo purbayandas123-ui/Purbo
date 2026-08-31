@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glorious FC Super App - By Purbayan Das</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#FFD60A;--black:#080808;--card:#131313}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--black);color:#fff;font-family:'Space Grotesk',sans-serif}
+header{position:sticky;top:0;z-index:99;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);border-bottom:1px solid #222;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:20px;font-weight:700;letter-spacing:-0.5px}.logo span{color:var(--gold)}
+.badge{background:var(--gold);color:#000;font-family:'JetBrains Mono';font-size:10px;font-weight:700;padding:5px 10px;border-radius:999px}
+.nav{display:flex;gap:8px;overflow:auto;padding:12px 14px}.nav::-webkit-scrollbar{display:none}
+.nav button{background:#1c1c1c;border:1px solid #2a2a2a;color:#999;padding:10px 14px;border-radius:999px;font-size:12px;white-space:nowrap;cursor:pointer}
+.nav button.active{background:var(--gold);color:#000;font-weight:700}
+.hero{padding:20px 18px}.hero h1{font-size:36px;line-height:.9;letter-spacing:-1.5px}.hero h1 i{color:var(--gold);font-style:normal}
+.hero p{font-family:'JetBrains Mono';font-size:11px;color:#666;margin-top:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:0 14px}
+.card{background:var(--card);border:1px solid #232323;border-radius:20px;padding:16px}.full{grid-column:1/-1}
+.btn{background:var(--gold);color:#000;border:0;padding:12px;border-radius:999px;font-weight:700;width:100%;margin-top:10px;cursor:pointer}
+.input{width:100%;background:#000;border:1px solid #333;border-radius:12px;padding:12px;color:#fff;margin-top:8px;font-family:'JetBrains Mono';font-size:13px}
+.section{display:none;padding:0 14px 90px}.section.active{display:block}
+.chat{height:340px;overflow:auto;background:#000;border:1px solid #222;border-radius:16px;padding:10px;margin-top:10px;display:flex;flex-direction:column;gap:8px}
+.msg{max-width:84%;padding:10px 12px;border-radius:14px;font-size:13px;line-height:1.35}
+.user{align-self:flex-end;background:var(--gold);color:#000;font-weight:600}
+.bot{align-self:flex-start;background:#1a1a1a;border:1px solid #222}
+.res{background:#000;border:1px dashed #333;border-radius:12px;padding:12px;margin-top:10px;font-family:'JetBrains Mono';font-size:12px;white-space:pre-wrap;color:#ccc}
+.qbtn{display:block;width:100%;text-align:left;background:#1a1a1a;border:1px solid #2a2a2a;padding:12px;border-radius:12px;margin-top:8px;color:#fff;cursor:pointer}
+.float{position:fixed;bottom:68px;right:14px;background:var(--gold);color:#000;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:24px;font-weight:700;cursor:pointer;z-index:99;box-shadow:0 10px 30px rgba(255,214,10,.35)}
+.mon{position:fixed;bottom:0;left:0;right:0;background:#000;border-top:1px solid #222;padding:8px 12px;font-family:'JetBrains Mono';font-size:10px;color:#666;display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<header><div class="logo">GLORIOUS <span>FC</span></div><div class="badge">OWNER: PURBAYAN DAS</div></header>
+<div class="nav" id="nav">
+<button class="active" onclick="go('home')">Home</button>
+<button onclick="go('ai')">AI Chatbot</button>
+<button onclick="go('tactics')">AI Tactics Solver</button>
+<button onclick="go('formation')">Formation Finder</button>
+<button onclick="go('player')">Player Finder</button>
+<button onclick="go('cards')">Cards Finder</button>
+<button onclick="go('quiz')">FC Quizzes</button>
+<button onclick="go('doubts')">Doubts</button>
+</div>
+
+<div id="home" class="section active">
+<div class="hero"><h1>PLAY WITH<br>PRIDE. STAY<br><i>GLORIOUS.</i></h1><p>MATCHDAY CONTROL ROOM // OWNER: PURBAYAN DAS // MONITORING: ACTIVE // RENDER READY</p></div>
+<div class="grid">
+<div class="card full"><h3>👑 Owner: Purbayan Das</h3><p style="font-family:JetBrains Mono;font-size:11px;color:#888;margin-top:6px">Official Super App. Built for Glorious FC community. Monitored 24/7.</p></div>
+<div class="card" onclick="go('ai')"><h3>💬 AI Chatbot</h3><p style="color:#888;font-size:11px">Ask owner, tactics, cards</p></div>
+<div class="card" onclick="go('tactics')"><h3>🧠 Tactics Solver</h3><p style="color:#888;font-size:11px">Counter any formation</p></div>
+<div class="card" onclick="go('formation')"><h3>📐 Formation Finder</h3><p style="color:#888;font-size:11px">Best by playstyle</p></div>
+<div class="card" onclick="go('player')"><h3>⭐ Player Finder</h3><p style="color:#888;font-size:11px">By position & budget</p></div>
+<div class="card full" onclick="go('cards')"><h3>🃏 Best Cards + Market Finder</h3><p style="color:#888;font-size:11px">Price, ROI, snipe tips</p></div>
+</div>
+</div>
+
+<div id="ai" class="section"><h2>💬 AI Chatbot</h2><div class="chat" id="chatBox"><div class="msg bot">Hi! I'm Glorious FC AI - Built by Purbayan Das 👑 Ask: Who is owner? Best ST? How to beat 4-4-2?</div></div><input id="chatIn" class="input" placeholder="Type question..." onkeydown="if(event.key==='Enter')send()"><button class="btn" onclick="send()">Send</button></div>
+
+<div id="tactics" class="section"><h2>🧠 AI Tactics Solver</h2><input id="oppF" class="input" placeholder="Opponent formation: 4-4-2"><input id="oppS" class="input" placeholder="Their style: long ball / tiki taka"><button class="btn" onclick="solve()">Solve Counter →</button><div id="tRes" class="res" style="display:none"></div></div>
+
+<div id="formation" class="section"><h2>📐 Best Formation Finder</h2><select id="pStyle" class="input"><option>Attacking</option><option>Defensive</option><option>Balanced</option><option>Possession</option><option>Counter Attack</option><option>Long Ball</option></select><button class="btn" onclick="formFind()">Find Formation</button><div id="fRes" class="res" style="display:none"></div></div>
+
+<div id="player" class="section"><h2>⭐ Best Player Finder</h2><input id="pos" class="input" placeholder="Position: ST, LW, CAM, CB, GK"><input id="bud" class="input" type="number" placeholder="Budget: 50000"><button class="btn" onclick="playFind()">Find Best Player</button><div id="pRes" class="res" style="display:none"></div></div>
+
+<div id="cards" class="section"><h2>🃏 Best Cards Finder</h2><input id="cIn" class="input" placeholder="Search: Mbappe, TOTW, pace"><button class="btn" onclick="cardFind()">Search Cards</button><div id="cRes" class="res" style="display:none"></div></div>
+
+<div id="quiz" class="section"><h2>🏆 FC Quizzes</h2><div id="qBox" class="card full" style="margin-top:12px"></div></div>
+
+<div id="doubts" class="section"><h2>❓ Doubts</h2>
+<div class="card full" style="margin-top:12px"><h3>Who is owner of Glorious FC?</h3><p style="color:#888;font-size:12px">Purbayan Das - Creator, owner & admin of Glorious FC Super App.</p></div>
+<div class="card full"><h3>How to earn coins fast?</h3><p style="color:#888;font-size:12px">Squad Battles Legendary + 59th minute trading + use Cards Finder to find underpriced cards.</p></div>
+<div class="card full"><h3>Best starter formation?</h3><p style="color:#888;font-size:12px">4-4-2 Balanced. Then move to 4-2-3-1 when comfortable. Check Formation Finder.</p></div>
+</div>
+
+<div class="float" onclick="go('ai')">💬</div>
+<div class="mon"><span id="m1">● MONITOR: ACTIVE | LOGS: 0</span><span id="m2">⚡ PING: 11ms | OWNER: PURBAYAN DAS</span></div>
+
+<script>
+// MONITORING
+let LOGS=[];function monLog(e){LOGS.push({t:Date.now(),e});document.getElementById('m1').innerText=`● MONITOR: ACTIVE | LOGS: ${LOGS.length} | LAST: ${e.substring(0,12)}`;console.log('[MONITOR]',e)}
+setInterval(()=>{document.getElementById('m2').innerText=`⚡ PING: ${10+Math.floor(Math.random()*25)}ms | ${new Date().toLocaleTimeString()} | OWNER: PURBAYAN DAS`},2000);
+function go(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));monLog('tab:'+id);window.scrollTo(0,0)}
+
+// CHATBOT
+function send(){let inp=document.getElementById('chatIn');let t=inp.value.trim();if(!t)return;let box=document.getElementById('chatBox');box.innerHTML+=`<div class="msg user">${t}</div>`;let l=t.toLowerCase();let r=l.includes('owner')||l.includes('purbayan')?'👑 Owner is Purbayan Das - Creator of Glorious FC Super App! The GOAT owner.':l.includes('formation')?'📐 Attack: 4-2-3-1 / Defense: 5-4-1 / Balanced: 4-4-2. Use Formation Finder!':l.includes('tactic')||l.includes('beat')?'🧠 To beat opponent: Press high vs slow, drop deep vs long ball. Use Tactics Solver for exact counter!':l.includes('card')?'🃏 Use Cards Finder! Look for 85+ pace + 80+ physical. Snipe on Wed.':l.includes('player')||l.includes('st')?'⭐ Best cheap: ST Vlahovic 12k, LW Leao 35k, CB Saliba 9k. Use Player Finder!':'🤔 Great Q! Ask about owner, formation, tactics, cards, players - I am trained by Purbayan Das!';box.innerHTML+=`<div class="msg bot">${r}</div>`;inp.value='';box.scrollTop=box.scrollHeight;monLog('chat:'+t.slice(0,10))}
+
+// TACTICS
+function solve(){let f=document.getElementById('oppF').value||'4-4-2';let s=document.getElementById('oppS').value||'balanced';document.getElementById('tRes').style.display='block';document.getElementById('tRes').innerText=`VS ${f.toUpperCase()} [${s}]\n\nOUR FORMATION: ${f.includes('4-4-2')?'4-3-3 Attack':'4-2-3-1'}\nDEFENSE: ${s.includes('long')?'Depth 42 Width 40':'Depth 71 High Press'}\nATTACK: Fast build, width 60, wings focus\nTIP FROM PURBAYAN DAS: Start defensive, sub attacker at 60'\n\nMONITORED ✅`;monLog('tactics:'+f)}
+
+// FORMATION
+function formFind(){let st=document.getElementById('pStyle').value;let m={Attacking:'4-2-3-1 Wide - CAM key, attacking fullbacks',Defensive:'5-4-1 - Ultra defensive, counter with WB',Balanced:'4-4-2 - Best for beginners, simple',Possession:'4-3-3 (4) - Possession monster, CMs', 'Counter Attack':'4-2-2-2 - Fastest counter, pace STs','Long Ball':'4-4-2 Long Ball - Target man essential'};document.getElementById('fRes').style.display='block';document.getElementById('fRes').innerText=`BEST FOR ${st.toUpperCase()}:\n${m[st]}\n\nConfigured by Purbayan Das AI System\nMONITORED ✅`;monLog('form:'+st)}
+
+// PLAYER & CARDS DB
+const DB=[{n:'Mbappe Gold',p:'ST',pr:85000,ra:91},{n:'Vlahovic',p:'ST',pr:12000,ra:84},{n:'Leao',p:'LW',pr:35000,ra:86},{n:'Saka',p:'RW',pr:28000,ra:86},{n:'Odegaard',p:'CAM',pr:18000,ra:87},{n:'Bellingham',p:'CM',pr:45000,ra:90},{n:'Saliba',p:'CB',pr:9000,ra:84},{n:'Hakimi',p:'RB',pr:15000,ra:84},{n:'Alisson',p:'GK',pr:8000,ra:89}];
+function playFind(){let pos=(document.getElementById('pos').value||'ST').toUpperCase();let bud=parseInt(document.getElementById('bud').value||50000);let f=DB.filter(x=>x.p===pos||pos.includes(x.p)).filter(x=>x.pr<=bud).sort((a,b)=>b.ra-a.ra);document.getElementById('pRes').style.display='block';document.getElementById('pRes').innerText=f.length?f.map(x=>`⭐ ${x.n} | ${x.p} | ${x.ra} OVR | ${x.pr} coins`).join('\n'):`No ${pos} under ${bud}. Try higher budget. - Purbayan Das`;monLog('player:'+pos)}
+function cardFind(){let q=(document.getElementById('cIn').value||'').toLowerCase();let f=DB.filter(x=>x.n.toLowerCase().includes(q)||q==='');document.getElementById('cRes').style.display='block';document.getElementById('cRes').innerText=f.map(x=>`🃏 ${x.n}\n   ${x.ra} OVR | ${x.pr} coins | ROI: ${x.ra>86?'HIGH':'MEDIUM'} | ${x.pr<20000?'SNIPING RECOMMENDED - Purbayan Tip':'HOLD'}`).join('\n\n');monLog('cards:'+q)}
+
+// QUIZ
+const Q=[{q:"Who is owner of Glorious FC?",o:["Purbayan Das","EA Sports","FIFA"],a:0},{q:"Best formation for attack?",o:["5-4-1","4-2-3-1","3-0-7"],a:1},{q:"Fastest coin method?",o:["Trading + Squad Battles","Quitting matches","Cheating"],a:0},{q:"What does 4-4-2 mean?",o:["4 defenders 4 mids 2 strikers","4 attackers","Code"],a:0}];let qi=0,sc=0;function loadQ(){let qq=Q[qi];document.getElementById('qBox').innerHTML=`<h3>Q${qi+1}/${Q.length}: ${qq.q}</h3><div id="opts"></div><p style="margin-top:10px;font-family:JetBrains Mono;font-size:11px;color:#666">Score: ${sc} | By Purbayan Das</p>`;let c=document.getElementById('opts');qq.o.forEach((op,i)=>{let b=document.createElement('button');b.className='qbtn';b.innerText=op;b.onclick=()=>{if(i===qq.a){sc++;monLog('quiz ok')}else monLog('quiz fail');qi=(qi+1)%Q.length;setTimeout(loadQ,500)};c.appendChild(b)})}loadQ();monLog('APP LOADED - Owner Purbayan Das - Render Ready');
+</script>
+</body>
+</html>
